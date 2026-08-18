@@ -8,7 +8,12 @@
 body {
     min-height: 100vh;
 
-    background: #0b1020;
+    background:
+        radial-gradient(
+            circle at top,
+            #18213f,
+            #080c18 70%
+        );
 
     color: white;
 
@@ -21,6 +26,8 @@ body {
     align-items: center;
 
     padding: 20px;
+
+    overflow-x: hidden;
 }
 
 
@@ -31,7 +38,7 @@ body {
 
     padding: 40px;
 
-    background: #141b32;
+    background: rgba(18, 25, 47, 0.96);
 
     border: 1px solid #303a5c;
 
@@ -40,20 +47,183 @@ body {
     text-align: center;
 
     box-shadow:
-        0 0 30px
+        0 0 40px
         rgba(100, 120, 255, 0.15);
 }
 
 
+/* Terminal */
+
+.terminal {
+    text-align: left;
+
+    background: #090d19;
+
+    border: 1px solid #252d47;
+
+    border-radius: 12px;
+
+    padding: 18px;
+
+    margin-bottom: 30px;
+
+    font-size: 14px;
+
+    line-height: 1.8;
+}
+
+
+.terminal p {
+    color: #7aa2ff;
+
+    margin-bottom: 5px;
+}
+
+
+.terminal .success-text {
+    color: #7cffb2;
+}
+
+
+/* Cursor */
+
+.cursor {
+    animation: blink 0.8s infinite;
+}
+
+
+@keyframes blink {
+
+    50% {
+        opacity: 0;
+    }
+
+}
+
+
+/* Heart */
+
+.heart {
+    font-size: 55px;
+
+    margin-bottom: 15px;
+
+    animation: heartbeat 1.3s infinite;
+}
+
+
+@keyframes heartbeat {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.15);
+    }
+
+}
+
+
+/* Heading */
+
 h1 {
+    font-size: 32px;
+
     margin-bottom: 20px;
 }
 
 
-p {
+/* Description */
+
+.description {
     color: #c9cde0;
 
     font-family: Arial, sans-serif;
 
     font-size: 18px;
+
+    line-height: 1.6;
+
+    margin-bottom: 25px;
+}
+
+
+/* Button */
+
+.primary-btn {
+    border: none;
+
+    border-radius: 10px;
+
+    padding: 14px 25px;
+
+    background: #ff4f81;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.primary-btn:hover {
+    background: #ff6c96;
+
+    transform: scale(1.05);
+}
+
+
+/* Mobile */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+
+    .container {
+        padding: 30px 20px;
+
+        border-radius: 16px;
+    }
+
+
+    .terminal {
+        padding: 14px;
+
+        font-size: 11px;
+
+        line-height: 1.7;
+    }
+
+
+    .heart {
+        font-size: 45px;
+    }
+
+
+    h1 {
+        font-size: 26px;
+    }
+
+
+    .description {
+        font-size: 16px;
+    }
+
+
+    .primary-btn {
+        width: 100%;
+
+        padding: 13px;
+    }
+
 }
