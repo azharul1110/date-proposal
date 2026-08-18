@@ -1,0 +1,59 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    min-height: 100vh;
+
+    background: #0b1020;
+
+    color: white;
+
+    font-family: "Courier New", monospace;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    padding: 20px;
+}
+
+
+.container {
+    width: 100%;
+
+    max-width: 650px;
+
+    padding: 40px;
+
+    background: #141b32;
+
+    border: 1px solid #303a5c;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    box-shadow:
+        0 0 30px
+        rgba(100, 120, 255, 0.15);
+}
+
+
+h1 {
+    margin-bottom: 20px;
+}
+
+
+p {
+    color: #c9cde0;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 18px;
+}
