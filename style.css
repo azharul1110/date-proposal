@@ -277,6 +277,167 @@ h1 {
 }
 
 
+/* ==========================================
+   DATE PLANNER
+========================================== */
+
+.form-group {
+    text-align: left;
+
+    margin-bottom: 25px;
+}
+
+
+.form-group label {
+    display: block;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    color: white;
+
+    font-size: 16px;
+
+    margin-bottom: 10px;
+}
+
+
+/* ==========================================
+   DATE INPUT
+========================================== */
+
+input[type="date"] {
+    width: 100%;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #424b6b;
+
+    background: #11182d;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+input[type="date"]:focus {
+    border-color: #ff4f81;
+}
+
+
+/* ==========================================
+   FOOD OPTIONS
+========================================== */
+
+.food-options {
+    display: grid;
+
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 10px;
+}
+
+
+.food-btn {
+    padding: 14px;
+
+    background: #171f38;
+
+    border: 1px solid #3b4565;
+
+    border-radius: 10px;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 15px;
+
+    cursor: pointer;
+
+    transition: 0.25s;
+}
+
+
+.food-btn:hover {
+    border-color: #ff4f81;
+
+    transform: translateY(-2px);
+}
+
+
+.food-btn.selected {
+    background: #ff4f81;
+
+    border-color: #ff4f81;
+}
+
+
+/* ==========================================
+   TEXTAREA
+========================================== */
+
+textarea {
+    width: 100%;
+
+    min-height: 100px;
+
+    resize: vertical;
+
+    padding: 14px;
+
+    border-radius: 10px;
+
+    border: 1px solid #424b6b;
+
+    background: #11182d;
+
+    color: white;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    outline: none;
+}
+
+
+textarea:focus {
+    border-color: #ff4f81;
+}
+
+
+textarea::placeholder {
+    color: #737b94;
+}
+
+
+/* ==========================================
+   PLANNER MESSAGE
+========================================== */
+
+.planner-message {
+    min-height: 25px;
+
+    margin-top: 15px;
+
+    color: #ffb4c9;
+
+    font-family: Arial, sans-serif;
+
+    font-weight: bold;
+
+    text-align: center;
+}
+
+
+
 /* Mobile */
 
 @media (max-width: 600px) {
@@ -342,3 +503,24 @@ h1 {
 
     padding: 10px 12px;
 }
+
+.food-options {
+        grid-template-columns: 1fr;
+    }
+
+
+    .food-btn {
+        width: 100%;
+    }
+
+
+    .form-group label {
+        font-size: 15px;
+    }
+
+
+    input[type="date"],
+    textarea {
+        font-size: 15px;
+    }
+

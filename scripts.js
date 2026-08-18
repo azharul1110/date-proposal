@@ -46,14 +46,34 @@ continueBtn.addEventListener("click", function () {
 
 
 // ==========================================
+// PLANNER SCREEN
+// ==========================================
+
+const plannerScreen =
+    document.getElementById("plannerScreen");
+
+
+const confirmBtn =
+    document.getElementById("confirmBtn");
+
+
+const plannerMessage =
+    document.getElementById("plannerMessage");
+
+
+const dateInput =
+    document.getElementById("dateInput");
+
+
+// ==========================================
 // YES BUTTON
 // ==========================================
 
 yesBtn.addEventListener("click", function () {
 
-    alert(
-        "Yesss! ❤️\n\nLet's plan our date!"
-    );
+    questionScreen.classList.add("hidden");
+
+    plannerScreen.classList.remove("hidden");
 
 });
 
@@ -152,5 +172,93 @@ noBtn.addEventListener("click", function () {
 
     noBtn.style.top =
         randomY + "px";
+
+});
+
+// ==========================================
+// DATE
+// ==========================================
+
+const today =
+    new Date()
+        .toISOString()
+        .split("T")[0];
+
+dateInput.min = today;
+
+// ==========================================
+// FOOD SELECTION
+// ==========================================
+
+const foodButtons =
+    document.querySelectorAll(".food-btn");
+
+let selectedFood = "";
+
+
+foodButtons.forEach(function (button) {
+
+    button.addEventListener("click", function () {
+
+        foodButtons.forEach(function (btn) {
+
+            btn.classList.remove("selected");
+
+        });
+
+
+        button.classList.add("selected");
+
+
+        selectedFood =
+            button.dataset.food;
+
+    });
+
+});
+
+// ==========================================
+// CONFIRM DATE
+// ==========================================
+
+confirmBtn.addEventListener("click", function () {
+
+    if (!dateInput.value) {
+
+        plannerMessage.textContent =
+            "📅 Please choose a date first.";
+
+        return;
+    }
+
+
+    if (!selectedFood) {
+
+        plannerMessage.textContent =
+            "🍕 Please choose something delicious.";
+
+        return;
+    }
+
+
+    const note =
+        document
+            .getElementById("noteInput")
+            .value
+            .trim();
+
+
+    console.log("Date:", dateInput.value);
+
+    console.log("Food:", selectedFood);
+
+    console.log("Note:", note);
+
+
+    alert(
+        "Perfect! ❤️\n\n" +
+        "Date: " + dateInput.value +
+        "\nFood: " + selectedFood
+    );
 
 });
