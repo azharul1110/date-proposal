@@ -437,6 +437,92 @@ textarea::placeholder {
 }
 
 
+/* ==========================================
+   FINAL SUCCESS SCREEN
+========================================== */
+
+.summary {
+    background: #11182d;
+
+    border: 1px solid #343e60;
+
+    border-radius: 15px;
+
+    padding: 20px;
+
+    margin-top: 25px;
+
+    text-align: left;
+}
+
+
+.summary-item {
+    margin: 14px 0;
+
+    color: #dfe3f5;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 17px;
+
+    line-height: 1.5;
+}
+
+
+.summary-item strong {
+    color: #ff8eb0;
+}
+
+
+.final-message {
+    margin-top: 25px;
+
+    color: #7cffb2;
+
+    text-align: left;
+
+    line-height: 1.8;
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   FLOATING HEARTS
+========================================== */
+
+.floating-heart {
+    position: fixed;
+
+    bottom: -30px;
+
+    pointer-events: none;
+
+    z-index: 1;
+
+    animation: floatUp linear forwards;
+}
+
+
+@keyframes floatUp {
+
+    from {
+        transform:
+            translateY(0)
+            rotate(0deg);
+
+        opacity: 0.8;
+    }
+
+    to {
+        transform:
+            translateY(-110vh)
+            rotate(360deg);
+
+        opacity: 0;
+    }
+
+}
 
 /* Mobile */
 
@@ -522,5 +608,20 @@ textarea::placeholder {
     input[type="date"],
     textarea {
         font-size: 15px;
+    }
+
+
+    .summary {
+        padding: 15px;
+    }
+
+
+    .summary-item {
+        font-size: 15px;
+    }
+
+
+    .final-message {
+        font-size: 13px;
     }
 

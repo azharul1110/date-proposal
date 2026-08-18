@@ -1,9 +1,8 @@
-
 // ==========================================
 // HER NAME
 // ==========================================
 
-const herName = "Nusrat";
+const herName = "CUTIE";
 
 document.getElementById("girlName").textContent =
     herName;
@@ -33,6 +32,43 @@ const message =
 
 
 // ==========================================
+// PLANNER SCREEN
+// ==========================================
+
+const plannerScreen =
+    document.getElementById("plannerScreen");
+
+const confirmBtn =
+    document.getElementById("confirmBtn");
+
+const plannerMessage =
+    document.getElementById("plannerMessage");
+
+const dateInput =
+    document.getElementById("dateInput");
+
+
+// ==========================================
+// FINAL SCREEN ELEMENTS
+// ==========================================
+
+const successScreen =
+    document.getElementById("successScreen");
+
+const finalDate =
+    document.getElementById("finalDate");
+
+const finalFood =
+    document.getElementById("finalFood");
+
+const finalNote =
+    document.getElementById("finalNote");
+
+const finalNoteContainer =
+    document.getElementById("finalNoteContainer");
+
+
+// ==========================================
 // CONTINUE BUTTON
 // ==========================================
 
@@ -43,26 +79,6 @@ continueBtn.addEventListener("click", function () {
     questionScreen.classList.remove("hidden");
 
 });
-
-
-// ==========================================
-// PLANNER SCREEN
-// ==========================================
-
-const plannerScreen =
-    document.getElementById("plannerScreen");
-
-
-const confirmBtn =
-    document.getElementById("confirmBtn");
-
-
-const plannerMessage =
-    document.getElementById("plannerMessage");
-
-
-const dateInput =
-    document.getElementById("dateInput");
 
 
 // ==========================================
@@ -175,6 +191,7 @@ noBtn.addEventListener("click", function () {
 
 });
 
+
 // ==========================================
 // DATE
 // ==========================================
@@ -185,6 +202,7 @@ const today =
         .split("T")[0];
 
 dateInput.min = today;
+
 
 // ==========================================
 // FOOD SELECTION
@@ -200,12 +218,16 @@ foodButtons.forEach(function (button) {
 
     button.addEventListener("click", function () {
 
+        // Remove previous selection
+
         foodButtons.forEach(function (btn) {
 
             btn.classList.remove("selected");
 
         });
 
+
+        // Select clicked food
 
         button.classList.add("selected");
 
@@ -217,11 +239,16 @@ foodButtons.forEach(function (button) {
 
 });
 
+
 // ==========================================
 // CONFIRM DATE
 // ==========================================
 
 confirmBtn.addEventListener("click", function () {
+
+    // --------------------------------------
+    // Check date
+    // --------------------------------------
 
     if (!dateInput.value) {
 
@@ -232,6 +259,10 @@ confirmBtn.addEventListener("click", function () {
     }
 
 
+    // --------------------------------------
+    // Check food
+    // --------------------------------------
+
     if (!selectedFood) {
 
         plannerMessage.textContent =
@@ -241,6 +272,10 @@ confirmBtn.addEventListener("click", function () {
     }
 
 
+    // --------------------------------------
+    // Get note
+    // --------------------------------------
+
     const note =
         document
             .getElementById("noteInput")
@@ -248,17 +283,150 @@ confirmBtn.addEventListener("click", function () {
             .trim();
 
 
-    console.log("Date:", dateInput.value);
+    // --------------------------------------
+    // Format date
+    // --------------------------------------
 
-    console.log("Food:", selectedFood);
+    const dateObject =
+        new Date(
+            dateInput.value + "T00:00:00"
+        );
 
-    console.log("Note:", note);
+
+    const formattedDate =
+        dateObject.toLocaleDateString(
+            "en-US",
+            {
+                weekday: "long",
+                year: "numeric",
+                month: "long",
+                day: "numeric"
+            }
+        );
 
 
-    alert(
-        "Perfect! ❤️\n\n" +
-        "Date: " + dateInput.value +
-        "\nFood: " + selectedFood
+    // --------------------------------------
+    // Show date
+    // --------------------------------------
+
+    finalDate.textContent =
+        formattedDate;
+
+
+    // --------------------------------------
+    // Show food
+    // --------------------------------------
+
+    finalFood.textContent =
+        selectedFood;
+
+
+    // --------------------------------------
+    // Show note
+    // --------------------------------------
+
+    if (note) {
+
+        finalNote.textContent =
+            note;
+
+        finalNoteContainer.style.display =
+            "block";
+
+    } else {
+
+        finalNoteContainer.style.display =
+            "none";
+
+    }
+
+
+    // --------------------------------------
+    // Change screen
+    // --------------------------------------
+
+    plannerScreen.classList.add(
+        "hidden"
     );
 
+
+    successScreen.classList.remove(
+        "hidden"
+    );
+
+
+    // --------------------------------------
+    // Celebration
+    // --------------------------------------
+
+    createHearts();
+
 });
+
+
+// ==========================================
+// FLOATING HEARTS
+// ==========================================
+
+function createHearts() {
+
+    const hearts = [
+        "❤️",
+        "💕",
+        "💗",
+        "💖",
+        "💘",
+        "💓"
+    ];
+
+
+    for (let i = 0; i < 35; i++) {
+
+        setTimeout(function () {
+
+            const heart =
+                document.createElement("div");
+
+
+            heart.classList.add(
+                "floating-heart"
+            );
+
+
+            heart.textContent =
+                hearts[
+                    Math.floor(
+                        Math.random() *
+                        hearts.length
+                    )
+                ];
+
+
+            heart.style.left =
+                Math.random() * 100 + "vw";
+
+
+            heart.style.fontSize =
+                (15 + Math.random() * 25) + "px";
+
+
+            heart.style.animationDuration =
+                (3 + Math.random() * 4) + "s";
+
+
+            document.body.appendChild(
+                heart
+            );
+
+
+            setTimeout(function () {
+
+                heart.remove();
+
+            }, 7000);
+
+        }, i * 150);
+
+    }
+
+}
