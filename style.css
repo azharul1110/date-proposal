@@ -179,6 +179,103 @@ h1 {
     transform: scale(1.05);
 }
 
+/* ==========================================
+   QUESTION SCREEN
+========================================== */
+
+.hidden {
+    display: none !important;
+}
+
+
+.question-buttons {
+    min-height: 90px;
+
+    display: flex;
+
+    justify-content: center;
+
+    align-items: center;
+
+    gap: 15px;
+
+    position: relative;
+}
+
+
+/* ==========================================
+   NO BUTTON
+========================================== */
+
+.no-btn {
+    border: 2px solid #69728f;
+
+    border-radius: 10px;
+
+    padding: 14px 25px;
+
+    background: #454d68;
+
+    color: white;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition:
+        background 0.25s,
+        transform 0.25s;
+}
+
+
+.no-btn:hover {
+    background: #59627f;
+
+    transform: scale(1.05);
+}
+
+
+/* ==========================================
+   NO BUTTON MESSAGE
+========================================== */
+
+.no-message {
+    min-height: 50px;
+
+    max-width: 500px;
+
+    margin: 10px auto 0;
+
+    padding: 12px 16px;
+
+    border-radius: 10px;
+
+    background: #2a1f38;
+
+    border: 1px solid #a76bc5;
+
+    color: #e8b8ff;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 16px;
+
+    font-weight: bold;
+
+    line-height: 1.5;
+
+    opacity: 0;
+
+    transition: opacity 0.25s;
+}
+
+
+.no-message.show {
+    opacity: 1;
+}
+
 
 /* Mobile */
 
@@ -226,4 +323,22 @@ h1 {
         padding: 13px;
     }
 
+}
+
+.question-buttons {
+    gap: 10px;
+}
+
+
+.no-btn {
+    padding: 13px 20px;
+
+    font-size: 14px;
+}
+
+
+.no-message {
+    font-size: 14px;
+
+    padding: 10px 12px;
 }
